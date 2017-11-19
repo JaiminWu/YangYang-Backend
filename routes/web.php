@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::redirect('/index', 'index.html');
+
+Route::redirect('/test', 'test');
