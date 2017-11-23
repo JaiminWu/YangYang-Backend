@@ -5,3 +5,9 @@ out
 gen
 /.env
 /config/*
+/public/hot
+/public/storage
+/storage/*.key
+/node_modules
+/vendor
+/.idea
