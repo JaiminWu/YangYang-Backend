@@ -41,7 +41,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'rm-wz9k3jyu38n7os9v7.mysql.rds.aliyuncs.com'),
+            'host' => env('DB_HOST', 'rm-wz9k3jyu38n7os9v7uo.mysql.rds.aliyuncs.com'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'business'),
             'username' => env('DB_USERNAME', 'jaiminwu'),
