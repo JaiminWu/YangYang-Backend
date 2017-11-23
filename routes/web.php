@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/foo', function () {
+    return '123';
+});
+
 Route::redirect('/index', 'index.html');
 
-Route::redirect('/test', 'test');
+Route::resource('photos', 'PhotoController');
+
+
+
