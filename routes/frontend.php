@@ -8,6 +8,8 @@
 use Illuminate\Http\Request;
 
 Route::get('user/login', 'UserController@login');
+Route::get('user/register', 'UserController@register');
+Route::get('user/changePassword', 'UserController@changePassword');
 Route::get('user/logout', 'UserController@logout');
 
 Route::middleware('user_login')->group(function (){

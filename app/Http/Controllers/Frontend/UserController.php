@@ -58,13 +58,14 @@ class UserController extends Controller
         $this->errorHandler(1, $user);
     }
 
-    public function create(){
+    public function register(Request $request){
 
     }
 
-    public function store(Request $request){
+    public function changePassword(Request $request){
 
     }
+
 
 
 

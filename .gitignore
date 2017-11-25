@@ -7,7 +7,7 @@ gen
 /config/*
 /public/hot
 /public/storage
-/storage/*.key
+/storage
 /node_modules
 /vendor
 /.idea
