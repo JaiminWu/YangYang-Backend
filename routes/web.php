@@ -10,18 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', 'index.html');
+Route::redirect('/home', 'index.html');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('user/login', 'Frontend\UserController@login');
 
-Route::get('/foo', function () {
-    return '123';
-});
-
-Route::redirect('/index', 'index.html');
 
 Route::resource('photos', 'PhotoController');
+
+
 
 
 
