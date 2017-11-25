@@ -13,11 +13,17 @@ class Controller extends BaseController
 
     public function errorHandler($code=1, $data=''){
         switch ($code){
+            case 101:
+                $msg = '查询结果为空';
+                break;
             case 301:
                 $msg = '账号不存在，请注册新账户';
                 break;
             case 302:
-                $msg = '账号不存在，请注册新账户';
+                $msg = '密码错误，请重试！';
+                break;
+            case 303:
+                $msg = '登录态失效，请重新登录。';
                 break;
             default:
                 $msg = '请求成功！';
