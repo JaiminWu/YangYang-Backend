@@ -14,6 +14,9 @@ Route::redirect('/', 'index.html');
 Route::redirect('/home', 'index.html');
 
 Route::get('user/login', 'Frontend\UserController@login');
+Route::get('user/test', 'Frontend\UserController@test');
+
+
 
 
 Route::resource('photos', 'PhotoController');

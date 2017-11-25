@@ -35,9 +35,10 @@ class UserController extends Controller
         $this->errorHandler();
     }
 
-    public function register()
+    public function test()
     {
-
+        $check_account_exist = User::all();
+        $this->errorHandler(1, $check_account_exist);
     }
 
 
