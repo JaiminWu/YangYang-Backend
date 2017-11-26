@@ -16,6 +16,7 @@ Route::get('code/send', 'CodeController@send');
 Route::middleware('user_login')->group(function (){
     Route::get('user/info', 'UserController@show');
     Route::get('user/register', 'UserController@register');
+    Route::get('user/identify', 'UserController@identify');
     Route::get('bill/borrow', 'BillController@borrow');
     Route::get('bill/repay', 'BillController@repay');
     Route::get('bill/borrowList', 'BillController@borrowList');

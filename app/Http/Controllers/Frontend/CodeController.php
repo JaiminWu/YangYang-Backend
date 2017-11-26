@@ -63,10 +63,6 @@ class CodeController extends Controller
         $request = new PublishMessageRequest($messageBody, $messageAttributes);
         try {
             $res = $topic->publishMessage($request);
-            echo $res->isSucceed();
-            echo "\n";
-            echo $res->getMessageId();
-            echo "\n";
             return $code;
         } catch (MnsException $e) {
             echo $e;
@@ -78,8 +74,6 @@ class CodeController extends Controller
     {
         $phone = $request->input('phone');
         $code = Code::where('phone', $phone)->first();
-        $user = new UserController();
-        $user->checkUserExist($phone);
         $this->checkCodeRepeat($code);
         if (empty($code)) {
             $code = new Code;
@@ -89,6 +83,7 @@ class CodeController extends Controller
         $code->code = $verify_code;
         $code->dead_time = time() + 900;
         $code->save();
+        $this->errorHandler();
     }
 
 
