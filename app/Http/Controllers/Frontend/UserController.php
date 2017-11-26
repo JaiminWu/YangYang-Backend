@@ -38,7 +38,7 @@ class UserController extends Controller
     }
 
     private function checkPassword($user_input){
-        $user_info = User::where('password', $user_input['password'])
+        $user_info = User::where('password', md5($user_input['password'].config('app.secret_key')))
             ->first();
         if(!$user_info){
             $this->errorHandler(302);
@@ -65,7 +65,7 @@ class UserController extends Controller
         $verify_code = new CodeController;
         $verify_code->checkCodeAvailable($user_info['phone'], $user_info['code']);
         $user->phone = $user_info['phone'];
-        $user->password = $user_info['password'];
+        $user->password = md5($user_info['password'].config('app.secret_key'));
         $user->referrer = $user_info['referrer'];
         $user->save();
         $this->errorHandler();

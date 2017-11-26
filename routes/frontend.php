@@ -26,5 +26,5 @@ Route::middleware('user_login')->group(function (){
 });
 
 Route::get('/test', function (){
-    echo time();
+    echo config('app.secret_key');
 });
