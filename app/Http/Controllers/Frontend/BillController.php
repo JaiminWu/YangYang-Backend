@@ -48,7 +48,7 @@ class BillController extends Controller
     }
 
     private function getList($type, $index){
-        $list_array = User::where($type, $index)
+        $list_array = Bill::where($type, $index)
             ->get();
         if(!$list_array){
             $this->errorHandler(101);

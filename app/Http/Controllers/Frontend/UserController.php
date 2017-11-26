@@ -22,13 +22,13 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $user_input = $request->all();
-        $this->checkAccountExist($user_input);
+        $this->checkUserNotExist($user_input);
         $user_info = $this->checkPassword($user_input);
         $request->session()->put('user_id', $user_info['user_id']);
-        $this->errorHandler(1, $request->session()->all());
+        $this->errorHandler();
     }
 
-    private function checkAccountExist($user_input){
+    private function checkUserNotExist($user_input){
         $check_account_exist = User::where('phone', $user_input['phone'])
             ->first();
         if(!$check_account_exist){
@@ -59,14 +59,27 @@ class UserController extends Controller
     }
 
     public function register(Request $request){
-
+        $user_info = $request->all();
+        $user = new User;
+        $this->checkUserExist($user_info['phone']);
+        $verify_code = new CodeController;
+        $verify_code->checkCodeAvailable($user_info['phone'], $user_info['code']);
+        $user->phone = $user_info['phone'];
+        $user->password = $user_info['password'];
+        $user->referrer = $user_info['referrer'];
+        $user->save();
+        $this->errorHandler();
     }
 
     public function changePassword(Request $request){
 
     }
 
-
-
+    public function checkUserExist($phone){
+        if(User::where('phone', $phone)->first()){
+            $this->errorHandler(305);
+            exit();
+        }
+    }
 
 }

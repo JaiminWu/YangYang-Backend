@@ -228,4 +228,6 @@ return [
 
     ],
 
+    'secret_key' => 'k2h4xbwl',
+
 ];

@@ -11,10 +11,11 @@ Route::get('user/login', 'UserController@login');
 Route::get('user/register', 'UserController@register');
 Route::get('user/changePassword', 'UserController@changePassword');
 Route::get('user/logout', 'UserController@logout');
+Route::get('code/send', 'CodeController@send');
 
 Route::middleware('user_login')->group(function (){
     Route::get('user/info', 'UserController@show');
-    Route::get('user/register', 'UserController@create');
+    Route::get('user/register', 'UserController@register');
     Route::get('bill/borrow', 'BillController@borrow');
     Route::get('bill/repay', 'BillController@repay');
     Route::get('bill/borrowList', 'BillController@borrowList');
@@ -22,4 +23,8 @@ Route::middleware('user_login')->group(function (){
     Route::get('bill/test', 'BillController@test');
     Route::get('message/list', 'MessageController@list');
     Route::get('message/info', 'MessageController@info');
+});
+
+Route::get('/test', function (){
+    echo time();
 });
