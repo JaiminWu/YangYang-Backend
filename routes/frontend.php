@@ -25,6 +25,6 @@ Route::middleware('user_login')->group(function (){
     Route::get('message/info', 'MessageController@info');
 });
 
-Route::get('/test', function (){
-    echo config('app.secret_key');
-});
+//Route::get('/test', function (){
+//
+//});
