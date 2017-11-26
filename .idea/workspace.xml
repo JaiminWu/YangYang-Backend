@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09ebc76e-9fdd-44aa-a173-5761237b9cb9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/static/css/app.b0dbc8b507f5f7d0b24acce8c4042f2e.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/static/css/app.b0dbc8b507f5f7d0b24acce8c4042f2e.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/static/js/app.bace35b292d7b1ad5059.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/static/js/app.bace35b292d7b1ad5059.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/static/js/manifest.2dcbffd98b5b01943671.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/static/js/manifest.2dcbffd98b5b01943671.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CodeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CodeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/session.php" afterPath="$PROJECT_DIR$/config/session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/frontend.php" afterPath="$PROJECT_DIR$/routes/frontend.php" />
-    </list>
+    <list default="true" id="09ebc76e-9fdd-44aa-a173-5761237b9cb9" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/CodeController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="627">
-              <caret line="38" column="63" lean-forward="true" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+              <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
               <folding>
                 <element signature="e#239#275#0#PHP" expanded="true" />
               </folding>
@@ -356,12 +344,12 @@
       <workItem from="1511420820731" duration="2395000" />
       <workItem from="1511505095327" duration="9653000" />
       <workItem from="1511603164140" duration="16230000" />
-      <workItem from="1511674641019" duration="14971000" />
+      <workItem from="1511674641019" duration="15016000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52546000" />
+    <option name="totallyTimeSpent" value="52591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -770,7 +758,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Frontend/CodeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
-          <caret line="38" column="63" lean-forward="true" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+          <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
           <folding>
             <element signature="e#239#275#0#PHP" expanded="true" />
           </folding>
