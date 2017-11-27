@@ -54,9 +54,7 @@ class UserController extends Controller
     }
 
     public function show(Request $request){
-        $user_id = $request->session()->get('user_id', null);
-        $user = User::findOrFail($user_id);
-        $this->errorHandler(1, $user);
+
     }
 
     public function register(Request $request){

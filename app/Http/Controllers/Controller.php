@@ -45,6 +45,5 @@ class Controller extends BaseController
         $output['code'] = $code;
         $output['msg'] = $msg;
         echo json_encode($output);
-        exit();
     }
 }
