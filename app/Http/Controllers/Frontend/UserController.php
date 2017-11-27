@@ -57,9 +57,11 @@ class UserController extends Controller
         $user_id = $request->session()->get('user_id', null);
         if(empty($user_id)){
             $this->errorHandler(303);
+            exit();
         }
-        $this->errorHandler(1, $user_id);
-//        $this->errorHandler(1);
+//        $user_id = '15';
+//        $this->errorHandler(1, $user_id);
+        $this->errorHandler(1);
 
     }
 
@@ -108,6 +110,7 @@ class UserController extends Controller
         $identity->user_id = $request->session()->get('user_id', null);
         $identity->name = $identify_info['name'];
         $identity->id_num = $identify_info['id_num'];
+        $identity->phone = $identify_info['phone'];
         $identity->wechat_id = $identify_info['wechat_id'];
         $identity->qq_id = $identify_info['qq_id'];
         $identity->address = $identify_info['address'];
@@ -117,7 +120,12 @@ class UserController extends Controller
 
     public function identity(Request $request){
         $user_id = $request->session()->get('user_id', null);
-
+        $identity = Identity::where('user_id', $user_id)->first();
+        if(empty($identity)){
+            $this->errorHandler(101);
+            exit();
+        }
+        $this->errorHandler(1, $identity);
     }
 
 }

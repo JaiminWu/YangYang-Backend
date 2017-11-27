@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Bill;
+use App\Identity;
 
 header("Access-Control-Allow-Origin:*");
 header('Access-Control-Allow-Methods:POST');
@@ -29,6 +30,7 @@ class BillController extends Controller
         $bill = new Bill;
         $bill->user_id = session('user_id');
         $bill->borrow = $borrow_info['borrow'];
+        $bill->type = $borrow_info['type'];
         $bill->applied_at = date('YmdHis');
         $bill->save();
         return true;
@@ -48,12 +50,26 @@ class BillController extends Controller
     }
 
     private function getList($type, $index){
-        $list_array = Bill::where($type, $index)
+        $user_id = session('user_id');
+        $list_array = Bill::where([$type => $index, 'bills.user_id' => $user_id])
+            ->leftJoin('identities', 'bills.user_id', '=', 'identities.user_id')
             ->get();
-        if(!$list_array){
+        if(empty($list_array)){
             $this->errorHandler(101);
+            exit();
         }
         return $list_array;
+    }
+
+    public function unrepaidInfo(){
+        $user_id = session('user_id');
+        $list_info = Bill::where(['borrow_sent' => 1, 'paid_off' => 0,'bills.user_id' => $user_id])
+            ->first();
+//        if(empty($list_info)){
+//            $this->errorHandler(101);
+//            exit();
+//        }
+        $this->errorHandler(1, $list_info);
     }
 
 

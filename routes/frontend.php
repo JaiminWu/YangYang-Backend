@@ -24,6 +24,7 @@ Route::middleware('user_login', 'web')->group(function (){
     Route::get('bill/repay', 'BillController@repay');
     Route::get('bill/borrowList', 'BillController@borrowList');
     Route::get('bill/repayList', 'BillController@repayList');
+    Route::get('bill/unrepaidInfo', 'BillController@unrepaidInfo');
     Route::get('bill/test', 'BillController@test');
     Route::get('message/list', 'MessageController@list');
     Route::get('message/info', 'MessageController@info');
