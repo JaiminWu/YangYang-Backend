@@ -32,8 +32,8 @@ class CodeController extends Controller
         /**
          * Step 1. 初始化Client
          */
-        $endPoint = "https://1273563388978752.mns.cn-shenzhen.aliyuncs.com/"; // eg. http://1234567890123456.mns.cn-shenzhen.aliyuncs.com
-//        $endPoint = "http://1273563388978752.mns.cn-shenzhen-internal-vpc.aliyuncs.com"; // 内网VPC地址
+//        $endPoint = "https://1273563388978752.mns.cn-shenzhen.aliyuncs.com/"; // eg. http://1234567890123456.mns.cn-shenzhen.aliyuncs.com
+        $endPoint = "http://1273563388978752.mns.cn-shenzhen-internal-vpc.aliyuncs.com"; // 内网VPC地址
         $accessId = "LTAI7IiqOP8CPaYB";
         $accessKey = "H0WKUigdBH0nl6rnojLY6IMLDHaN0I";
         $client = new Client($endPoint, $accessId, $accessKey);
