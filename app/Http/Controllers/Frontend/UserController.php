@@ -23,10 +23,10 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $user_input = $request->all();
-        $this->checkUserNotExist($user_input['phone']);
-        $user_info = $this->checkPassword($user_input);
+        $user_info = $this->checkUserNotExist($user_input['phone']);
+        $this->checkPassword($user_input['password']);
         $request->session()->put('user_id', $user_info['user_id']);
-        $this->errorHandler(1, $request->session()->get('user_id', null));
+        $this->errorHandler(1, $request->session()->get('user_id'));
     }
 
     private function checkUserNotExist($phone){
@@ -38,8 +38,8 @@ class UserController extends Controller
         return $check_account_exist;
     }
 
-    private function checkPassword($user_input){
-        $user_info = User::where('password', md5($user_input['password'].config('app.secret_key')))
+    private function checkPassword($password){
+        $user_info = User::where('password', md5($password.config('app.secret_key')))
             ->first();
         if(!$user_info){
             $this->errorHandler(302);

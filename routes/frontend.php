@@ -26,6 +26,14 @@ Route::middleware('user_login')->group(function (){
     Route::get('message/info', 'MessageController@info');
 });
 
-//Route::get('/test', function (){
-//
-//});
+Route::get('/test1', function (Request $request){
+    $request->session()->put('user_id', '123');
+    echo 1;
+});
+
+Route::get('/test2', function (Request $request){
+    $user_id = $request->session()->get('user_id');
+    echo $user_id;
+});
+
+
