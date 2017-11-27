@@ -24,6 +24,7 @@ class Controller extends BaseController
                 break;
             case 303:
                 $msg = '登录态失效，请重新登录。';
+                exit();
                 break;
             case 304:
                 $msg = '60秒内不可重复发送验证码。';

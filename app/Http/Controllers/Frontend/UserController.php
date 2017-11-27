@@ -53,6 +53,14 @@ class UserController extends Controller
         $this->errorHandler();
     }
 
+    public function checkLogin(Request $request){
+        $user_id = $request->session()->get('user_id', null);
+        if(empty($user_id)){
+            $this->errorHandler(303);
+        }
+        $this->errorHandler(1, $user_id);
+    }
+
     public function show(Request $request){
 
     }
@@ -63,10 +71,9 @@ class UserController extends Controller
         $this->checkUserExist($user_info['phone']);
         $verify_code = new CodeController;
         $verify_code->checkCodeAvailable($user_info['phone'], $user_info['code']);
-        $user_id = $user->insertGetId([
-            'phone' => $user_info['phone'], 'password' => md5($user_info['password'].config('app.secret_key')),
-            'referrer' => $user_info['referrer']
-            ]);
+        unset($user_info['code']);
+        $user_info['password'] = md5($user_info['password'].config('app.secret_key'));
+        $user_id = $user->insertGetId($user_info);
         $request->session()->put('user_id', $user_id);
         $this->errorHandler();
     }
@@ -103,6 +110,11 @@ class UserController extends Controller
         $identity->address = $identify_info['address'];
         $identity->save();
         $this->errorHandler(1, $request->session()->get('user_id', null));
+    }
+
+    public function identity(Request $request){
+        $user_id = $request->session()->get('user_id', null);
+
     }
 
 }
