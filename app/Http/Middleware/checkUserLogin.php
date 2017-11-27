@@ -15,9 +15,9 @@ class checkUserLogin
      */
     public function handle($request, Closure $next)
     {
-//        if (empty($request->session()->get('user_id'))) {
-//            return redirect('/');
-//        }
+        if (empty($request->session()->get('user_id'))) {
+            return redirect('/');
+        }
         return $next($request);
     }
 }
