@@ -56,7 +56,7 @@ class UserController extends Controller
     public function checkLogin(Request $request){
         $user_id = $request->session()->get('user_id', null);
         if(empty($user_id)){
-            $this->errorHandler(303);
+            $this->errorHandler(303, $user_id);
             exit();
         }
 //        $user_id = '15';
