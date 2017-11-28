@@ -49,10 +49,9 @@ class UserController extends Controller
     }
 
     public function verify(Request $request){
-        $if_verified = $request->get('if_verified');
         $user_id = $request->get('user_id');
         $identity = Identity::where('user_id', $user_id)->first();
-        $identity->if_verified = 1 - $if_verified;
+        $identity->if_verified = 1 - $identity->if_verified;
         $identity->save();
         $this->errorHandler();
     }
