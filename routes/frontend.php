@@ -7,15 +7,13 @@
  */
 use Illuminate\Http\Request;
 
-Route::middleware('web')->group(function (){
-    Route::get('user/login', 'UserController@login');
-    Route::get('user/register', 'UserController@register');
-    Route::get('user/changePassword', 'UserController@changePassword');
-    Route::get('user/logout', 'UserController@logout');
-    Route::get('code/send', 'CodeController@send');
-});
+Route::get('user/login', 'UserController@login');
+Route::get('user/register', 'UserController@register');
+Route::get('user/changePassword', 'UserController@changePassword');
+Route::get('user/logout', 'UserController@logout');
+Route::get('code/send', 'CodeController@send');
 
-Route::middleware('user_login', 'web')->group(function (){
+Route::middleware('user_login')->group(function (){
     Route::get('user/info', 'UserController@show');
     Route::get('user/checkLogin', 'UserController@checkLogin');
     Route::get('user/identify', 'UserController@identify');

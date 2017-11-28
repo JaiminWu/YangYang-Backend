@@ -2,18 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: jaiminwu-stuff
- * Date: 2017/11/25
- * Time: 下午7:01
+ * Date: 2017/11/28
+ * Time: 下午5:44
  */
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Agent;
 
-use App\Admin;
-
-class AdminController extends Controller
+class AgentController extends Controller
 {
 
     public function list(Request $request){
@@ -31,13 +30,4 @@ class AdminController extends Controller
     public function delete(Request $request){
 
     }
-
-    public function login(Request $request){
-
-    }
-
-    public function logout(Request $request){
-
-    }
-
 }

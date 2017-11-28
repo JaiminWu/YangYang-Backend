@@ -6,7 +6,7 @@ use Closure;
 
 use App\Http\Controllers\Controller;
 
-class checkUserLogin
+class checkAdminLogin
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,11 @@ class checkUserLogin
      */
     public function handle($request, Closure $next)
     {
-        if (empty($request->session()->get('user_id'))) {
-            $error_handler = new Controller;
-            $error_handler->errorHandler(303);
-            return null;
-        }
+//        if (empty($request->session()->get('admin_id'))) {
+//            $error_handler = new Controller;
+//            $error_handler->errorHandler(303);
+//            return null;
+//        }
         return $next($request);
     }
 }

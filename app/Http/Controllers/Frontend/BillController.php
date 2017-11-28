@@ -37,15 +37,15 @@ class BillController extends Controller
     }
 
     public function borrowList(Request $request){
-        $borrow_sent = $request->get('borrow_sent');
-        $borrow_array = $this->getList('borrow_sent', $borrow_sent);
+        $borrow_sent = $request->get('status');
+        $borrow_array = $this->getList('status', $borrow_sent);
         $this->errorHandler(1, $borrow_array);
 
     }
 
     public function repayList(Request $request){
-        $paid_off = $request->get('paid_off');
-        $repay_array = $this->getList('paid_off', $paid_off);
+        $paid_off = $request->get('status');
+        $repay_array = $this->getList('status', $paid_off);
         $this->errorHandler(1, $repay_array);
     }
 
@@ -63,7 +63,7 @@ class BillController extends Controller
 
     public function unrepaidInfo(){
         $user_id = session('user_id');
-        $list_info = Bill::where(['borrow_sent' => 1, 'paid_off' => 0,'bills.user_id' => $user_id])
+        $list_info = Bill::where(['status' => 1,'bills.user_id' => $user_id])
             ->first();
 //        if(empty($list_info)){
 //            $this->errorHandler(101);

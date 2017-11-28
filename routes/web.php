@@ -12,6 +12,8 @@
 */
 Route::redirect('/', 'index.html');
 Route::redirect('/home', 'index.html');
+Route::redirect('/admin', 'admin/index.html');
+Route::redirect('/admin/login', 'login.html');
 
 
 

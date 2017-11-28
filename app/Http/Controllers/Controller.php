@@ -16,6 +16,9 @@ class Controller extends BaseController
             case 101:
                 $msg = '查询结果为空';
                 break;
+            case 202:
+                $msg = '更新数据失败，请重试或联系后台管理员';
+                break;
             case 301:
                 $msg = '账号不存在，请注册新账户';
                 break;

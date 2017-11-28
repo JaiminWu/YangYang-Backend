@@ -114,6 +114,7 @@ class UserController extends Controller
         $identity->wechat_id = $identify_info['wechat_id'];
         $identity->qq_id = $identify_info['qq_id'];
         $identity->address = $identify_info['address'];
+        $identity->if_verified = 0;
         $identity->save();
         $this->errorHandler(1, $request->session()->get('user_id', null));
     }

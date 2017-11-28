@@ -20,4 +20,20 @@ header('Access-Control-Allow-Headers:x-requested-with,content-type');
 class MessageController extends Controller
 {
 
+    public function list(Request $request){
+        $user_id = $request->session()->get('user_id', null);
+        $message_array = Message::where('user_id', $user_id)
+                                ->get();
+        $this->errorHandler(1, $message_array);
+    }
+
+    public function info(Request $request){
+        $user_id = $request->session()->get('user_id', null);
+        $message_id = $request->get('message_id');
+        $message_info = Message::where(['user_id' => $user_id, 'message_id' => $message_id])
+            ->get();
+        $this->errorHandler(1, $message_info);
+    }
+
+
 }
