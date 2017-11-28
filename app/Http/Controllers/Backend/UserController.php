@@ -41,8 +41,10 @@ class UserController extends Controller
     public function info(Request $request){
         $user_id = $request->get('user_id');
         $user_info = User::where('user_id', $user_id)
-                        ->leftJoin('identities', 'users.user_id', '=', 'identities.user_id')
                         ->first();
+        $identity_info = Identity::where('user_id', $user_id)
+                                ->first();
+        $user_info['identity_info'] = $identity_info;
         $this->errorHandler(1, $user_info);
     }
 
