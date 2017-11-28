@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Identity;
 
+
+header("Access-Control-Allow-Origin:*");
+header('Access-Control-Allow-Methods:POST');
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
 class UserController extends Controller
 {
 
@@ -37,6 +41,7 @@ class UserController extends Controller
     public function info(Request $request){
         $user_id = $request->get('user_id');
         $user_info = User::where('user_id', $user_id)
+                        ->leftJoin('identities', 'users.user_id', '=', 'identities.user_id')
                         ->first();
         $this->errorHandler(1, $user_info);
     }

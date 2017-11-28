@@ -14,6 +14,11 @@ use Illuminate\Http\Request;
 
 use App\Bill;
 
+
+header("Access-Control-Allow-Origin:*");
+header('Access-Control-Allow-Methods:POST');
+header('Access-Control-Allow-Headers:x-requested-with,content-type');
+
 class BillController extends Controller
 {
 
@@ -33,9 +38,9 @@ class BillController extends Controller
 
     public function update(Request $request){
         $bill_id = $request->get('bill_id');
-        $status = $request->get('status');
         $bill = Bill::find($bill_id);
-        $bill->status = $status;
+        $bill->status = $request->get('status');
+        $bill->deadline_at = $request->get('deadline_at');
         $bill->save();
         $this->errorHandler();
 
