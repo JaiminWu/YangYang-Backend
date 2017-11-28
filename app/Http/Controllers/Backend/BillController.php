@@ -40,7 +40,7 @@ class BillController extends Controller
         $bill_id = $request->get('bill_id');
         $bill = Bill::find($bill_id);
         $bill->status = $request->get('status');
-        $bill->deadline_at = $request->get('deadline_at');
+//        $bill->deadline_at = $request->get('deadline_at');
         $bill->save();
         $this->errorHandler();
 
