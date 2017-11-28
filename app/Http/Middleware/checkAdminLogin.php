@@ -20,7 +20,7 @@ class checkAdminLogin
 //        if (empty($request->session()->get('admin_id'))) {
 //            $error_handler = new Controller;
 //            $error_handler->errorHandler(303);
-//            return null;
+//            exit();
 //        }
         return $next($request);
     }

@@ -17,11 +17,12 @@ class checkUserLogin
      */
     public function handle($request, Closure $next)
     {
-        if (empty($request->session()->get('user_id'))) {
-            $error_handler = new Controller;
-            $error_handler->errorHandler(303);
-            return null;
-        }
+//        if (empty($request->session()->get('user_id'))) {
+//            $error_handler = new Controller;
+//            $error_handler->errorHandler(303);
+//            exit();
+//
+//        }
         return $next($request);
     }
 }
