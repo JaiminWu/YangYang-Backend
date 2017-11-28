@@ -33,6 +33,7 @@ class UserController extends Controller
 
     private function getList($adult){
         $user_array = User::where('adult', $adult)
+                        ->leftJoin('identities', 'identities.user_id', '=', 'users.user_id')
                         ->get();
         return $user_array;
 
