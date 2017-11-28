@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Identity;
+use App\Bill;
 
 
 header("Access-Control-Allow-Origin:*");
@@ -35,7 +36,13 @@ class UserController extends Controller
         $user_array = User::where('adult', $adult)
                         ->leftJoin('identities', 'identities.user_id', '=', 'users.user_id')
                         ->get();
-        return $user_array;
+        $user_list = array();
+        foreach ($user_array as $key => $value){
+            $user_list[$key] = $value;
+            $user_list[$key]['user_bill'] = Bill::where('user_id', $value->user_id)
+                                        ->get();
+        }
+        return $user_list;
 
     }
 
