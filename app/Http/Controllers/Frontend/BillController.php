@@ -31,7 +31,7 @@ class BillController extends Controller
         $bill->user_id = session('user_id');
         $bill->borrow = $borrow_info['borrow'];
         $bill->type = $borrow_info['type'];
-        $bill->deadline_at = date('Y-m-d',strtotime('+'.$borrow_info['deadline_at'].' months'));
+        $bill->deadline_at = date('Y-m-d',strtotime('+'.$borrow_info['deadline_at'].' days'));
         $bill->applied_at = date('YmdHis');
         $bill->save();
         return true;
