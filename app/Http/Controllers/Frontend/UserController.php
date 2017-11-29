@@ -106,7 +106,8 @@ class UserController extends Controller
 
     public function identify(Request $request){
         $identify_info = $request->all();
-        $identity = new Identity;
+        $identity = Identity::where('user_id', $request->session()->get('user_id', null))
+                        ->first();
         $identity->user_id = $request->session()->get('user_id', null);
         $identity->name = $identify_info['name'];
         $identity->id_num = $identify_info['id_num'];
