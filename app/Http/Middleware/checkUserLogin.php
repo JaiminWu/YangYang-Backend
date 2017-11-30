@@ -20,8 +20,7 @@ class checkUserLogin
         if (empty($request->session()->get('user_id'))) {
             $error_handler = new Controller;
             $error_handler->errorHandler(303);
-            exit();
-
+            return true;
         }
         return $next($request);
     }
