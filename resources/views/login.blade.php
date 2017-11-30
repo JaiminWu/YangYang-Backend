@@ -103,8 +103,8 @@
         console.log($('#account').val())
         console.log($('#password').val())
         $.ajax({
-          url: 'http://localhost/admin/admin/login',
-//          url: 'http://www.gzfinance.top/admin/admin/login',
+//          url: 'http://localhost/admin/admin/login',
+          url: 'http://www.gzfinance.top/admin/admin/login',
           type: 'post',
           data: {
               'account':$('#account').val(),
@@ -116,8 +116,8 @@
           success: function(res) {
             if (JSON.parse(res).code == '1') {
               alert(JSON.parse(res).msg)
-              window.location.href = 'http://localhost/admin';
-//              window.location.href = 'http://www.gzfinance.top/admin';
+//              window.location.href = 'http://localhost/admin';
+              window.location.href = 'http://www.gzfinance.top/admin';
             } else {
               alert(JSON.parse(res).msg)
             }
