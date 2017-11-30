@@ -17,11 +17,11 @@ class checkAdminLogin
      */
     public function handle($request, Closure $next)
     {
-//        if (empty($request->session()->get('admin_id'))) {
-//            $error_handler = new Controller;
-//            $error_handler->errorHandler(303);
-//            exit();
-//        }
+        if (empty($request->session()->get('admin_id'))) {
+            $error_handler = new Controller;
+            $error_handler->errorHandler(303);
+            exit();
+        }
         return $next($request);
     }
 }
