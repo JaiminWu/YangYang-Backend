@@ -79,6 +79,9 @@ class UserController extends Controller
         unset($user_info['code']);
         $user_info['password'] = md5($user_info['password'].config('app.secret_key'));
         $user_id = $user->insertGetId($user_info);
+        $identity = new Identity;
+        $identity->user_id = $user_id;
+        $identity->save();
         $request->session()->put('user_id', $user_id);
         $this->errorHandler();
     }
