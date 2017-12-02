@@ -78,6 +78,7 @@ class UserController extends Controller
         $verify_code->checkCodeAvailable($user_info['phone'], $user_info['code']);
         unset($user_info['code']);
         $user_info['password'] = md5($user_info['password'].config('app.secret_key'));
+        $user_info['create_at'] = date('YmdHis');
         $user_id = $user->insertGetId($user_info);
         $identity = new Identity;
         $identity->user_id = $user_id;
