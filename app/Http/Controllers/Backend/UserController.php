@@ -34,11 +34,18 @@ class UserController extends Controller
 
     private function getList($adult){
         $user_array = User::where('adult', $adult)
-                        ->leftJoin('identities', 'identities.user_id', '=', 'users.user_id')
                         ->get();
         $user_list = array();
         foreach ($user_array as $key => $value){
             $user_list[$key] = $value;
+            $user_identity = Identity::where('user_id', $value->user_id)
+                                    ->first();
+            $user_list[$key]['name'] = $user_identity->name;
+            $user_list[$key]['id_num'] = $user_identity->id_num;
+            $user_list[$key]['wechat_id'] = $user_identity->wechat_id;
+            $user_list[$key]['qq_id'] = $user_identity->qq_id;
+            $user_list[$key]['address'] = $user_identity->address;
+            $user_list[$key]['if_verified'] = $user_identity->if_verified;
             $user_list[$key]['user_bill'] = Bill::where('user_id', $value->user_id)
                                         ->get();
         }
